@@ -16,24 +16,24 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t reverseproxy .
-  - docker tag simple-node YOUR_DOCKER_HUB/reverseproxy:latest
+  - docker tag simple-node damiloladeborah/reverseproxy:latest
 
   - docker --version # print the version for logging
   - docker build -t udagram-api-user .
-  - docker tag simple-node YOUR_DOCKER_HUB/udagram-api-user:latest
+  - docker tag simple-node damiloladeborah/udagram-api-user:latest
 
   - docker --version # print the version for logging
   - docker build -t udagram-api-feed .
-  - docker tag simple-node YOUR_DOCKER_HUB/udagram-api-feed:latest
+  - docker tag simple-node damiloladeborah/udagram-api-feed:latest
 
   - docker --version # print the version for logging
   - docker build -t udagram-frontend .
-  - docker tag simple-node YOUR_DOCKER_HUB/udagram-frontend:local
+  - docker tag simple-node damiloladeborah/udagram-frontend:local
 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push YOUR_DOCKER_HUB/reverseproxy
-  - docker push YOUR_DOCKER_HUB/udagram-api-user
-  - docker push YOUR_DOCKER_HUB/udagram-api-feed
-  - docker push YOUR_DOCKER_HUB/udagram-frontend
+  - docker push damiloladeborah/reverseproxy
+  - docker push damiloladeborah/udagram-api-user
+  - docker push damiloladeborah/udagram-api-feed
+  - docker push damiloladeborah/udagram-frontend
