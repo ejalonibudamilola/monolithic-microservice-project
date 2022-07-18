@@ -42,3 +42,9 @@ venv/
 !.elasticbeanstalk/*.global.yml
 set_env.sh
 node_modules
+env-configmap.yaml
+env-secret.yaml
+projectCluster.yaml
+aws-secret.yaml
+docker-compose-build.yaml
+docker-compose.yaml

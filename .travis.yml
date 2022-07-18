@@ -16,27 +16,27 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t reverseproxy ./udagram-reverseproxy
-  - docker tag reverseproxy damiloladeborah/reverseproxy:latest
+  - docker tag reverseproxy damiloladeborah/reverseproxy:v1
 
   - docker --version # print the version for logging
   - docker build -t udagram-api-user ./udagram-api-user
-  - docker tag udagram-api-user damiloladeborah/udagram-api-user:latest
+  - docker tag udagram-api-user damiloladeborah/udagram-api-user:v1
 
   - docker --version # print the version for logging
   - docker build -t udagram-api-feed ./udagram-api-feed
-  - docker tag udagram-api-feed damiloladeborah/udagram-api-feed:latest
+  - docker tag udagram-api-feed damiloladeborah/udagram-api-feed:v1
 
   - docker --version # print the version for logging
   - docker build -t udagram-frontend ./udagram-frontend
-  - docker tag udagram-frontend  damiloladeborah/udagram-frontend:local
+  - docker tag udagram-frontend  damiloladeborah/udagram-frontend:v1
 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push damiloladeborah/reverseproxy
+  - docker push damiloladeborah/reverseproxy:v1
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push damiloladeborah/udagram-api-user
+  - docker push damiloladeborah/udagram-api-user:v1
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push damiloladeborah/udagram-api-feed
+  - docker push damiloladeborah/udagram-api-feed:v1
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push damiloladeborah/udagram-frontend
+  - docker push damiloladeborah/udagram-frontend:v1
